@@ -39,20 +39,7 @@ scp.dom = code
 
 fct = function (req)
     Widgets.div(
-        WebIO.render(
-            HTML(
-                """
-                <section class="hero is-primary">
-                  <div class="hero-body">
-                    <div class="container">
-                      <h1 class="title">Text input demo</h1>
-                      <h2 class="subtitle">Examples of web apps built with Julia</h2>
-                    </div>
-                  </div>
-                </section>
-                """
-            )
-        ),
+        header("Text demos"),
         Widgets.div(
             Widgets.div(
                 textinputdemo(),
