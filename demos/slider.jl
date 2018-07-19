@@ -10,7 +10,7 @@ using Plots
     @layout! wdg Widgets.div(:size, :number, _.display)
 end
 
-code =
+slidercode =
     """
     @widget wdg function sliderdemo()
         :size = slider(1:0.1:10, label = "markersize")
@@ -24,7 +24,7 @@ code =
     end
     """
 
-fct = function (req)
+sliderfct = function (req)
     Widgets.div(
         header("Slider demos"),
         Widgets.div(
@@ -33,7 +33,7 @@ fct = function (req)
                 className = "section"
             ),
             Widgets.div(
-                togglecontent(highlight(code), label = "Show code"),
+                togglecontent(highlight(slidercode), label = "Show code"),
                 className = "section has-background-light"
             ),
             className = "container"
@@ -41,4 +41,4 @@ fct = function (req)
     )
 end
 
-push!(pages, page("/demos/slider.jl", fct))
+push!(pages, page("/demos/slider.jl", sliderfct))

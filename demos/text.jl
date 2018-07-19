@@ -7,7 +7,7 @@
     @layout! wdg Widgets.div(:text, :textarea, :number, _.display)
 end
 
-code =
+textcode =
     """
     @widget wdg function textinputdemo()
         :text = textbox(value = "Initial text", label = "This is a simple text box")
@@ -19,7 +19,7 @@ code =
     end
     """
 
-fct = function (req)
+textfct = function (req)
     Widgets.div(
         header("Text demos"),
         Widgets.div(
@@ -28,7 +28,7 @@ fct = function (req)
                 className = "section"
             ),
             Widgets.div(
-                togglecontent(highlight(code), label = "Show code"),
+                togglecontent(highlight(textcode), label = "Show code"),
                 className = "section has-background-light"
             ),
             className = "container"
@@ -36,4 +36,4 @@ fct = function (req)
     )
 end
 
-push!(pages, page("/demos/text.jl", fct))
+push!(pages, page("/demos/text.jl", textfct))
