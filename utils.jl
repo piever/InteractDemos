@@ -67,9 +67,7 @@ function column(title, subtitle, page, link)
       </div>
       """
     )
-    scp = Scope()
-    scp.dom = WebIO.render(html)
-    slap_design!(scp)
+    WebIO.render(html)
 end
 
 function highlight(code)
