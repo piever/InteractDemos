@@ -1,5 +1,5 @@
-header(title) =
-    WebIO.render(
+function header(title, subtitle = "")
+    node = WebIO.render(
         HTML(
             """
             <section class="hero is-primary">
@@ -25,12 +25,52 @@ header(title) =
                 </div>
                 <div class="hero-body">
                   <h1 class="title">$title</h1>
+                  <h2 class="subtitle">$subtitle</h2>
                 </div>
               </div>
             </section>
             """
         )
     )
+    scp = Scope()
+    scp.dom = node
+    slap_design!(scp)
+end
+
+function column(title, subtitle, page, link)
+    html = HTML("""
+      <div class="column">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="title">$title</h2>
+            <h3 class="subtitle">$subtitle</h2>
+          </div>
+          <footer class="card-footer">
+            <div class="card-footer-item">
+              <a href="$page" class="button is-success">
+                <span class="icon">
+                  <i class="fa fa-magic"></i>
+                </span>
+                <span>Demo</span>
+              </a>
+            </div>
+            <div class="card-footer-item">
+              <a href="$link" class="button is-info">
+                <span class="icon">
+                  <i class="fa fa-book"></i>
+                </span>
+                <span>Docs</span>
+              </a>
+            </div>
+          </footer>
+        </div>
+      </div>
+      """
+    )
+    scp = Scope()
+    scp.dom = WebIO.render(html)
+    slap_design!(scp)
+end
 
 function highlight(code)
     codeblock = Node(

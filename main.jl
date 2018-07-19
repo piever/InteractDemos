@@ -1,11 +1,12 @@
 using Mux, Interact
 
-pages = Any[
-  page("/", req -> Mux.fileresponse(joinpath(@__DIR__, "index.html"))),
-  page("/index.html", req -> Mux.fileresponse(joinpath(@__DIR__, "index.html"))),
-]
-
 include("utils.jl")
+include("index.jl")
+
+pages = Any[
+    page("/", req -> homepage),
+    page("/index.html", req -> homepage),
+]
 include("demos/text.jl")
 include("demos/type.jl")
 include("demos/slider.jl")
