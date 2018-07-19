@@ -2,8 +2,10 @@ using Plots
 
 @widget wdg function sliderdemo()
     :size = slider(1:0.1:10, label = "markersize")
+    :sizethrottle = throttle(0.1, :size)
     :number = slider(10:10:100, label = "number of points")
-    @output! wdg scatter(rand($(:number)), rand($(:number)), markersize = $(:size))
+    :numberthrottle = throttle(0.1, :number)
+    @output! wdg scatter(rand($(:numberthrottle)), rand($(:numberthrottle)), markersize = $(:sizethrottle))
     @display! wdg InteractBase.center($(_.output))
     @layout! wdg Widgets.div(:size, :number, _.display)
 end
@@ -12,10 +14,13 @@ code =
     """
     @widget wdg function sliderdemo()
         :size = slider(1:0.1:10, label = "markersize")
+        # throttling makes the update wait at least 0.1 seconds, useful if the observable triggers expensive events
+        :sizethrottle = throttle(0.1, :size)
         :number = slider(10:10:100, label = "number of points")
-        @output! wdg scatter(rand(\$(:number), rand(\$(:number), markersize = \$(:size))
+        :numberthrottle = throttle(0.1, :number)
+        @output! wdg scatter(rand(\$(:numberthrottle)), rand(\$(:numberthrottle)), markersize = \$(:sizethrottle))
         @display! wdg InteractBase.center(\$(_.output))
-        @layout! wdg Widgets.div(:text, :textarea, :number, _.display)
+        @layout! wdg Widgets.div(:size, :number, _.display)
     end
     """
 
