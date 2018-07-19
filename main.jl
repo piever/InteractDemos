@@ -7,6 +7,7 @@ pages = Any[
 
 include("utils.jl")
 include("demos/text.jl")
+include("demos/slider.jl")
 
 using Mux
 using JSON
