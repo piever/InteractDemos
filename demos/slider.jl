@@ -1,4 +1,5 @@
 using Plots
+gr()
 
 @widget wdg function sliderdemo()
     :size = slider(1:0.1:10, label = "markersize")
