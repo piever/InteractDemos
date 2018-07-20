@@ -43,3 +43,9 @@ sliderfct = function (req)
 end
 
 push!(pages, page("/demos/slider.jl", sliderfct))
+push!(columns, column(
+    "Slider widget",
+    "How to use a slider",
+    "demos/slider.jl",
+    docs * "widgets.html#Range-input-1"
+))

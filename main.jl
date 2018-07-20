@@ -1,15 +1,18 @@
 using Mux, Interact
 
 include("utils.jl")
-include("index.jl")
 
-pages = Any[
-    page("/", req -> homepage),
-    page("/index.html", req -> homepage),
-]
+pages = Any[]
+columns = Any[]
+docs = "https://juliagizmos.github.io/Interact.jl/latest/"
+
 include("demos/text.jl")
 include("demos/type.jl")
 include("demos/slider.jl")
+
+include("index.jl")
+
+append!(pages, [page("/", req -> homepage), page("/index.html", req -> homepage)])
 
 using Mux
 using JSON

@@ -35,3 +35,9 @@ typefct = function (req)
 end
 
 push!(pages, page("/demos/type.jl", typefct))
+push!(columns, column(
+    "Type widgets",
+    "Creating widgets for Julia types",
+    "demos/type.jl",
+    docs * "widgets.html#Type-input-1"
+))
