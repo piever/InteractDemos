@@ -69,27 +69,3 @@ function column(title, subtitle, page, link)
     )
     WebIO.render(html)
 end
-
-function highlight(code)
-    codeblock = Node(
-        :div,
-        Node(
-            :pre,
-            Node(
-                :code,
-                code,
-                className = "language-julia"
-            )
-        ),
-        className = "content"
-    )
-
-    scp = Scope(imports = [
-        joinpath.(@__DIR__, "css", "style.css"),
-        joinpath.(@__DIR__, "highlight", "prism.css"),
-        joinpath.(@__DIR__, "highlight", "prism.js")
-    ])
-
-    scp.dom = codeblock
-    scp
-end
