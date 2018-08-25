@@ -1,27 +1,35 @@
 using Plots
 gr()
 
-@widget wdg function sliderdemo()
-    :size = slider(1:0.1:10, label = "markersize")
-    :sizethrottle = throttle(0.1, :size)
-    :number = slider(10:10:100, label = "number of points")
-    :numberthrottle = throttle(0.1, :number)
-    @output! wdg scatter(rand($(:numberthrottle)), rand($(:numberthrottle)), markersize = $(:sizethrottle))
-    @display! wdg InteractBase.center($(_.output))
-    @layout! wdg Widgets.div(:size, :number, _.display)
+function sliderdemo()
+    size = slider(1:0.1:10, label = "markersize")
+    sizethrottle = throttle(0.01, size)
+    number = slider(10:100, label = "number of points")
+    numberthrottle = throttle(0.01, number)
+    wdg = Widget{:sliderdemo}(
+        [:size => size, :number => number];
+        output = Observables.@map begin
+            x = range(-pi, stop = pi, length = &number)
+            scatter(x, sin.(x), markersize = &sizethrottle)
+        end
+    )
+    @layout! wdg Widgets.div(:size, :number, InteractBase.center(observe(_)))
+    wdg
 end
 
 slidercode =
     """
-    @widget wdg function sliderdemo()
-        :size = slider(1:0.1:10, label = "markersize")
-        # throttling makes the update wait at least 0.1 seconds, useful if the observable triggers expensive events
-        :sizethrottle = throttle(0.1, :size)
-        :number = slider(10:10:100, label = "number of points")
-        :numberthrottle = throttle(0.1, :number)
-        @output! wdg scatter(rand(\$(:numberthrottle)), rand(\$(:numberthrottle)), markersize = \$(:sizethrottle))
-        @display! wdg InteractBase.center(\$(_.output))
-        @layout! wdg Widgets.div(:size, :number, _.display)
+    function sliderdemo()
+        size = slider(1:0.1:10, label = "markersize")
+        sizethrottle = throttle(0.01, size)
+        number = slider(10:100, label = "number of points")
+        numberthrottle = throttle(0.01, number)
+        wdg = Widget{:sliderdemo}(
+            [:size => size, :number => number];
+            output = Observables.@map scatter(rand(&numberthrottle), rand(&numberthrottle), markersize = &sizethrottle)
+        )
+        @layout! wdg Widgets.div(:size, :number, InteractBase.center(observe(_)))
+        wdg
     end
     """
 

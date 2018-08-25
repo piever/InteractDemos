@@ -1,4 +1,5 @@
 using Mux, Interact
+using Widgets
 
 include("utils.jl")
 
@@ -35,5 +36,5 @@ function serve_app(pages, port)
 
   Mux.serve(http, websock, port)
 end
-
-serve_app(pages, rand(8000:9000))
+@show port = rand(8000:9000)
+serve_app(pages, port)
