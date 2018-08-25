@@ -1,19 +1,27 @@
-@widget wdg function typedemo()
-    :color = colorpicker(label="Choose a color")
-    :date = datepicker(label="Choose a date")
-    :time = timepicker(label="Choose a time")
-    @output! wdg Observable("Many Julia types have a corresponding widget")
-    @display! wdg InteractBase.center($(_.output))
+function typedemo()
+    color = colorpicker(label="Choose a color")
+    date = datepicker(label="Choose a date")
+    time = timepicker(label="Choose a time")
+    wdg = Widget{:typedem}(
+        [:color => color, :date => date, :time => time],
+        output = Observable("Many Julia types have a corresponding widget")
+    )
+    @layout! wdg Widgets.div(:color, :date, :time, InteractBase.center(observe(_)))
+    wdg
 end
 
 typecode =
     """
-    @widget wdg function typedemo()
-        :color = colorpicker(label="Choose a color")
-        :date = datepicker(label="Choose a date")
-        :time = timepicker(label="Choose a time")
-        @output! wdg Observable("Many Julia types have a corresponding widget")
-        @display! wdg InteractBase.center(\$(_.output))
+    function typedemo()
+        color = colorpicker(label="Choose a color")
+        date = datepicker(label="Choose a date")
+        time = timepicker(label="Choose a time")
+        wdg = Widget{:typedem}(
+            [:color => color, :date => date, :time => time],
+            output = Observable("Many Julia types have a corresponding widget")
+        )
+        @layout! wdg Widgets.div(:color, :date, :time, InteractBase.center(observe(_)))
+        wdg
     end
     """
 

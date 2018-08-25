@@ -1,4 +1,5 @@
 using Mux, Interact
+using Widgets
 
 include("utils.jl")
 
@@ -8,8 +9,8 @@ docs = "https://juliagizmos.github.io/Interact.jl/latest/"
 
 include("demos/text.jl")
 include("demos/type.jl")
-include("demos/slider.jl")
-include("demos/dropdown.jl")
+# include("demos/slider.jl")
+# include("demos/dropdown.jl")
 
 include("index.jl")
 
@@ -35,5 +36,5 @@ function serve_app(pages, port)
 
   Mux.serve(http, websock, port)
 end
-
-serve_app(pages, rand(8000:9000))
+@show port = rand(8000:9000)
+serve_app(pages, port)
