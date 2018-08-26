@@ -9,8 +9,8 @@ docs = "https://juliagizmos.github.io/Interact.jl/latest/"
 
 include("demos/text.jl")
 include("demos/type.jl")
-# include("demos/slider.jl")
-# include("demos/dropdown.jl")
+include("demos/slider.jl")
+include("demos/dropdown.jl")
 
 include("index.jl")
 

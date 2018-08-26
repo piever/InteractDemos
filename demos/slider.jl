@@ -1,34 +1,36 @@
-using Plots
-gr()
+using UnicodePlots
 
 function sliderdemo()
-    size = slider(1:0.1:10, label = "markersize")
-    sizethrottle = throttle(0.05, size)
+    offset = slider(-pi:0.1:pi, label = "offset")
     number = slider(10:100, label = "number of points")
-    numberthrottle = throttle(0.05, number)
     wdg = Widget{:sliderdemo}(
-        [:size => size, :number => number];
+        [:offset => offset, :number => number];
         output = Observables.@map begin
-            x = range(-pi, stop = pi, length = &number)
-            scatter(x, sin.(x), markersize = &sizethrottle)
+            x = range(-pi, stop = pi, length = &throttle(0.05, number))
+            plt = scatterplot(x, sin.(x))
+            scatterplot!(plt, x .+ &throttle(0.05, offset), sin.(x))
+            plt
         end
     )
-    @layout! wdg Widgets.div(:size, :number, InteractBase.center(observe(_)))
+    @layout! wdg Widgets.div(:offset, :number, InteractBase.center(observe(_)))
     wdg
 end
 
 slidercode =
     """
     function sliderdemo()
-        size = slider(1:0.1:10, label = "markersize")
-        sizethrottle = throttle(0.05, size)
+        offset = slider(-pi:0.1:pi, label = "offset")
         number = slider(10:100, label = "number of points")
-        numberthrottle = throttle(0.05, number)
         wdg = Widget{:sliderdemo}(
-            [:size => size, :number => number];
-            output = Observables.@map scatter(rand(&numberthrottle), rand(&numberthrottle), markersize = &sizethrottle)
+            [:offset => offset, :number => number];
+            output = Observables.@map begin
+                x = range(-pi, stop = pi, length = &throttle(0.05, number))
+                plt = scatterplot(x, sin.(x))
+                scatterplot!(plt, x .+ &throttle(0.05, offset), sin.(x))
+                plt
+            end
         )
-        @layout! wdg Widgets.div(:size, :number, InteractBase.center(observe(_)))
+        @layout! wdg Widgets.div(:offset, :number, InteractBase.center(observe(_)))
         wdg
     end
     """

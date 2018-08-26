@@ -19,6 +19,24 @@ git-tree-sha1 = "ff13fd99e4dd54f56eb064815f843bc992a871a2"
 uuid = "70588ee8-6100-5070-97c1-3cb50ed05fe8"
 version = "0.1.0"
 
+[[CSV]]
+deps = ["CategoricalArrays", "DataFrames", "DataStreams", "Dates", "InternedStrings", "Missings", "Mmap", "Test", "WeakRefStrings"]
+git-tree-sha1 = "67134caa06fd033202d89385517e4d8b542f420c"
+uuid = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+version = "0.3.1"
+
+[[CategoricalArrays]]
+deps = ["Compat", "Future", "JSON", "Missings", "Printf", "Reexport"]
+git-tree-sha1 = "8009a507e2e3db040d6854a82ce959fb5971cb37"
+uuid = "324d7699-5711-5eae-9e2f-1d82baa6b597"
+version = "0.3.13"
+
+[[CodecZlib]]
+deps = ["BinaryProvider", "Libdl", "Pkg", "Test", "TranscodingStreams"]
+git-tree-sha1 = "83cb3d65c37ea1364c2d5bf7bcea41843ba645dc"
+uuid = "944b1d66-785c-5afd-91f1-9de20f533193"
+version = "0.5.0"
+
 [[ColorTypes]]
 deps = ["FixedPointNumbers", "Random", "Test"]
 git-tree-sha1 = "0e3209ba7418aed732e5c3818076b4400ee36c08"
@@ -36,6 +54,18 @@ deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", 
 git-tree-sha1 = "277d3807440d9793421354b6680911fc95d91a84"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
 version = "1.0.1"
+
+[[DataFrames]]
+deps = ["CategoricalArrays", "CodecZlib", "Compat", "DataStreams", "Dates", "InteractiveUtils", "LinearAlgebra", "Missings", "Pkg", "Printf", "Random", "Reexport", "SortingAlgorithms", "Statistics", "StatsBase", "Test", "TranscodingStreams", "Unicode", "WeakRefStrings"]
+git-tree-sha1 = "31cca86a48add8d5cdd9457c4f75ee5577ef3488"
+uuid = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+version = "0.13.1"
+
+[[DataStreams]]
+deps = ["Dates", "Missings", "Test", "WeakRefStrings"]
+git-tree-sha1 = "c54fb051465fb0741caa57972b67bd21ce2f39c7"
+uuid = "9a8bc11e-79be-5b39-94d7-1ccc349a1a85"
+version = "0.4.0"
 
 [[DataStructures]]
 deps = ["InteractiveUtils", "REPL", "Random", "Serialization", "Test"]
@@ -69,6 +99,10 @@ deps = ["Test"]
 git-tree-sha1 = "9fdecc849480c511d7825570c20c9b64c4e5d5ed"
 uuid = "de31a74c-ac4f-5751-b3fd-e18cd04993ca"
 version = "0.4.0"
+
+[[Future]]
+deps = ["Random"]
+uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[HTTP]]
 deps = ["Base64", "Dates", "Distributed", "IniFile", "MbedTLS", "Sockets", "Test"]
@@ -109,6 +143,12 @@ version = "0.4.2"
 [[InteractiveUtils]]
 deps = ["LinearAlgebra", "Markdown"]
 uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
+
+[[InternedStrings]]
+deps = ["Random", "Test"]
+git-tree-sha1 = "eb05b5625bc5d821b8075a77e4c421933e20c76b"
+uuid = "7d512f48-7fb1-5a58-b986-67e6dc259f01"
+version = "0.7.0"
 
 [[JSExpr]]
 deps = ["JSON", "MacroTools", "Observables", "Pkg", "Test", "WebIO"]
@@ -168,6 +208,12 @@ deps = ["Compat"]
 git-tree-sha1 = "9cdd05418a7f2f7ce534014285edf01f465d6961"
 uuid = "442fdcdd-2543-5da2-b0f3-8c86c306513e"
 version = "0.2.0"
+
+[[Missings]]
+deps = ["Dates", "InteractiveUtils", "SparseArrays", "Test"]
+git-tree-sha1 = "196528fa1df03df435025f52f9c1ff8356f94738"
+uuid = "e1d29d7a-bbdc-5cf2-9ac0-f12de2c33e28"
+version = "0.3.0"
 
 [[Mmap]]
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
@@ -237,6 +283,12 @@ uuid = "1a1011a3-84de-559e-8e89-a11a2f7dc383"
 [[Sockets]]
 uuid = "6462fe0b-24de-5631-8697-dd941f90decc"
 
+[[SortingAlgorithms]]
+deps = ["DataStructures", "Random", "Test"]
+git-tree-sha1 = "03f5898c9959f8115e30bc7226ada7d0df554ddd"
+uuid = "a2af1166-a08f-5f64-846c-94a0d3cef48c"
+version = "0.3.1"
+
 [[SparseArrays]]
 deps = ["LinearAlgebra", "Random"]
 uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
@@ -245,9 +297,21 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 deps = ["LinearAlgebra", "SparseArrays"]
 uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
+[[StatsBase]]
+deps = ["DataStructures", "LinearAlgebra", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "Test"]
+git-tree-sha1 = "723193a13e8078cec6dcd0b8fe245c8bfd81690e"
+uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+version = "0.25.0"
+
 [[Test]]
 deps = ["Distributed", "InteractiveUtils", "Logging", "Random"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[[TranscodingStreams]]
+deps = ["DelimitedFiles", "Pkg", "Random", "Test"]
+git-tree-sha1 = "a27b3a1b9c1120ef67b4647b80c61a16c09b9218"
+uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
+version = "0.8.0"
 
 [[UUIDs]]
 deps = ["Random"]
@@ -255,6 +319,18 @@ uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 
 [[Unicode]]
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
+
+[[UnicodePlots]]
+deps = ["Dates", "Pkg", "SparseArrays", "StatsBase", "Test"]
+git-tree-sha1 = "d26d1e85fb7e9d432a7bb0cd6e421e8a82928604"
+uuid = "b8865327-cd53-5732-bb35-84acbb429228"
+version = "0.3.1"
+
+[[WeakRefStrings]]
+deps = ["Missings", "Random", "Test"]
+git-tree-sha1 = "d4631352d65840254d33ab703e2de3d9768cdb77"
+uuid = "ea10d353-3f73-51f8-a26c-33c1cb351aa5"
+version = "0.5.2"
 
 [[WebIO]]
 deps = ["AssetRegistry", "Base64", "Compat", "Dates", "FunctionalCollections", "JSON", "Observables", "Pkg", "Requires", "Sockets", "Test", "UUIDs", "Widgets"]

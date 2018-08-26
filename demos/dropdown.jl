@@ -1,17 +1,17 @@
-using DataFrames, CSV, Plots
+using DataFrames, CSV, UnicodePlots
 
-iris = CSV.read(joinpath(@__DIR__, "..", "assets", "iris.csv"))
+iris = CSV.read(joinpath(@__DIR__, "..", "assets", "iris.csv"))[1:4]
+disallowmissing!(iris)
 
 function dataframedemo(df)
     x = dropdown(names(df), label = "x")
     y = dropdown(names(df), label = "y")
-    plotfct = dropdown(OrderedDict("path" => plot, "scatter" => scatter))
     btn = button("Draw")
     wdg = Widget{:dataframedemo}(
-        [:btn => btn, :x => x, :y => y, :plotfct => plotfct],
-        output = Observables.@map (&btn; plotfct[](df[x[]], df[y[]]))
+        [:btn => btn, :x => x, :y => y],
+        output = Observables.@map (&btn; scatterplot(df[x[]], df[y[]]))
     )
-    @layout! wdg hbox(Widgets.div(:x, :y, :plotfct, :btn), InteractBase.center(observe(_)))
+    @layout! wdg hbox(Widgets.div(:x, :y, :btn), InteractBase.center(observe(_)))
     wdg
 end
 
@@ -20,13 +20,12 @@ dropdowncode =
     function dataframedemo(df)
         x = dropdown(names(df), label = "x")
         y = dropdown(names(df), label = "y")
-        plotfct = dropdown(OrderedDict("path" => plot, "scatter" => scatter))
         btn = button("Draw")
         wdg = Widget{:dataframedemo}(
-            [:btn => btn, :x => x, :y => y, :plotfct => plotfct],
-            output = Observables.@map (&btn; plotfct[](df[x[]], df[y[]]))
+            [:btn => btn, :x => x, :y => y],
+            output = Observables.@map (&btn; scatterplot(df[x[]], df[y[]]))
         )
-        @layout! wdg hbox(Widgets.div(:x, :y, :plotfct, :btn), InteractBase.center(observe(_)))
+        @layout! wdg hbox(Widgets.div(:x, :y, :btn), InteractBase.center(observe(_)))
         wdg
     end
     """
