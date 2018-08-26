@@ -9,7 +9,7 @@ function dataframedemo(df)
     btn = button("Draw")
     wdg = Widget{:dataframedemo}(
         [:btn => btn, :x => x, :y => y],
-        output = Observables.@map (&btn; scatterplot(df[x[]], df[y[]]))
+        output = Observables.@map (&btn; scatterplot(df[x[]], df[y[]], canvas = DotCanvas))
     )
     @layout! wdg hbox(Widgets.div(:x, :y, :btn), InteractBase.center(observe(_)))
     wdg
