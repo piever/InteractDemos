@@ -36,5 +36,6 @@ function serve_app(pages, port)
 
   Mux.serve(http, websock, port)
 end
-@show port = rand(8000:9000)
+port = 8000
+# @show port = rand(8000:9000)
 serve_app(pages, port)
