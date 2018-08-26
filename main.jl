@@ -1,5 +1,5 @@
 using Mux, Interact
-using Widgets
+using Widgets, Sockets
 
 include("utils.jl")
 
@@ -34,7 +34,7 @@ function serve_app(pages, port)
       Mux.notfound(),
   ))
 
-  Mux.serve(http, websock, port)
+  Mux.serve(http, websock, getipaddr(), port)
 end
 port = 8000
 # @show port = rand(8000:9000)
