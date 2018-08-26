@@ -3,9 +3,9 @@ gr()
 
 function sliderdemo()
     size = slider(1:0.1:10, label = "markersize")
-    sizethrottle = throttle(0.01, size)
+    sizethrottle = throttle(0.05, size)
     number = slider(10:100, label = "number of points")
-    numberthrottle = throttle(0.01, number)
+    numberthrottle = throttle(0.05, number)
     wdg = Widget{:sliderdemo}(
         [:size => size, :number => number];
         output = Observables.@map begin
@@ -21,9 +21,9 @@ slidercode =
     """
     function sliderdemo()
         size = slider(1:0.1:10, label = "markersize")
-        sizethrottle = throttle(0.01, size)
+        sizethrottle = throttle(0.05, size)
         number = slider(10:100, label = "number of points")
-        numberthrottle = throttle(0.01, number)
+        numberthrottle = throttle(0.05, number)
         wdg = Widget{:sliderdemo}(
             [:size => size, :number => number];
             output = Observables.@map scatter(rand(&numberthrottle), rand(&numberthrottle), markersize = &sizethrottle)
