@@ -20,10 +20,10 @@ using Mux
 using JSON
 using AssetRegistry
 
-function serve_app(pages, port)
+function serve_app(app, port)
   http = Mux.App(Mux.mux(
       Mux.defaults,
-      pages...,
+      app,
       Mux.notfound()
   ))
 
@@ -38,4 +38,4 @@ function serve_app(pages, port)
 end
 port = 8000
 # @show port = rand(8000:9000)
-serve_app(pages, port)
+serve_app(Mux.stack(pages...), port)
