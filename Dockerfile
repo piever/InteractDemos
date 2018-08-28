@@ -12,5 +12,5 @@ RUN julia -e 'import Pkg; Pkg.pkg"add Mux#master WebIO#master InteractBase#maste
 # Make port 80 available to the world outside this container
 EXPOSE 8000
 
-# Run app.py when the container launches
+# Run main.jl when the container launches
 CMD ["julia", "main.jl"]
