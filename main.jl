@@ -18,4 +18,4 @@ append!(pages, [page("/", req -> homepage), page("/index.html", req -> homepage)
 
 port = 8000
 # @show port = rand(8000:9000)
-WebIO.webio_serve(Mux.stack(pages...), getipaddr(), port)
+WebIO.webio_serve(Mux.stack(pages...), ip"0.0.0.0", port)
