@@ -1,4 +1,4 @@
-using Mux, Interact
+using Mux, Interact, WebIO
 using Widgets, Sockets
 
 include("utils.jl")
@@ -16,26 +16,6 @@ include("index.jl")
 
 append!(pages, [page("/", req -> homepage), page("/index.html", req -> homepage)])
 
-using Mux
-using JSON
-using AssetRegistry
-
-function serve_app(app, port)
-  http = Mux.App(Mux.mux(
-      Mux.defaults,
-      app,
-      Mux.notfound()
-  ))
-
-  websock = Mux.App(Mux.mux(
-      Mux.wdefaults,
-      route("/webio-socket", WebIO.create_socket),
-      Mux.wclose,
-      Mux.notfound(),
-  ))
-
-  Mux.serve(http, websock, getipaddr(), port)
-end
 port = 8000
 # @show port = rand(8000:9000)
-serve_app(Mux.stack(pages...), port)
+WebIO.webio_serve(Mux.stack(pages...), getipaddr(), port)
