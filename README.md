@@ -6,7 +6,7 @@ A collection of demos using the Julia Interact package.
 
 Before I set up this on some server, you can try it locally. Clone the repository, install the relevant packages (now you need master on some of them, but this will be fixed soon):
 
-`] add Mux#master WebIO#master InteractBase#master Interact Widgets UnicodePlots CSV DataFrames`
+`] add Mux WebIO#master InteractBase#master Interact Widgets UnicodePlots CSV DataFrames`
 
 and then run:
 
