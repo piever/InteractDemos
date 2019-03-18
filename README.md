@@ -4,9 +4,9 @@ A collection of demos using the Julia Interact package.
 
 ## Set up locally
 
-Before I set up this on some server, you can try it locally. Clone the repository, install the relevant packages (now you need master on some of them, but this will be fixed soon):
+Before I set up this on some server, you can try it locally. Clone the repository, install the relevant packages:
 
-`] add Mux WebIO#master InteractBase#master Interact Widgets UnicodePlots CSV DataFrames`
+`] add Mux WebIO Interact Widgets UnicodePlots CSV DataFrames`
 
 and then run:
 
