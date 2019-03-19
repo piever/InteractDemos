@@ -1,9 +1,9 @@
 [deps]
-AssetRegistry = "bf4720bc-e11a-5d0c-854e-bdca1663c893"
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Interact = "c601a237-2ae4-5e1e-952c-7a85b0c7eef1"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 Mux = "a975b10e-0019-58db-a62f-e48ff68538c9"
 UnicodePlots = "b8865327-cd53-5732-bb35-84acbb429228"
+WebIO = "0f1e0344-ec1d-5b48-a673-e5cf874b6c29"
 Widgets = "cc8bc4a8-27d6-5769-a93b-9d913e69aa62"
