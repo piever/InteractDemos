@@ -107,10 +107,10 @@ deps = ["Random"]
 uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
 
 [[HTTP]]
-deps = ["Base64", "Dates", "Distributed", "IniFile", "MbedTLS", "Sockets", "Test"]
-git-tree-sha1 = "b881f69331e85642be315c63d05ed65d6fc8a05b"
+deps = ["Base64", "Dates", "Distributed", "IniFile", "MbedTLS", "Random", "Sockets", "Test"]
+git-tree-sha1 = "25db0e3f27bd5715814ca7e4ad22025fdcf5cc6e"
 uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-version = "0.7.1"
+version = "0.8.0"
 
 [[Hiccup]]
 deps = ["MacroTools", "Test"]
@@ -125,22 +125,16 @@ uuid = "83e8ac13-25f8-5344-8a64-a9f2b223428f"
 version = "0.5.0"
 
 [[Interact]]
-deps = ["CSSUtil", "DataStructures", "InteractBase", "InteractBulma", "JSON", "Knockout", "Observables", "Reexport", "Test", "WebIO", "Widgets"]
-git-tree-sha1 = "759f0b5bb0359331e80bd9cd76bc38d519ba2847"
+deps = ["CSSUtil", "InteractBase", "JSON", "Knockout", "Observables", "OrderedCollections", "Reexport", "Test", "WebIO", "Widgets"]
+git-tree-sha1 = "5a4f9e4787149f3c6e45f5d8f161cc2fc556f3f8"
 uuid = "c601a237-2ae4-5e1e-952c-7a85b0c7eef1"
-version = "0.9.1"
+version = "0.10.0"
 
 [[InteractBase]]
 deps = ["Base64", "CSSUtil", "Colors", "DataStructures", "Dates", "JSExpr", "JSON", "Knockout", "Observables", "Random", "Test", "WebIO", "Widgets"]
-git-tree-sha1 = "406dc93aaeeda5d37fc7aaf069b83d623ed260a7"
+git-tree-sha1 = "acf1df60ea842eab7d4a345970b0a0691fedaca7"
 uuid = "d3863d7c-f0c8-5437-a7b4-3ae773c01009"
-version = "0.9.0"
-
-[[InteractBulma]]
-deps = ["InteractBase", "Test"]
-git-tree-sha1 = "4f2fe609080165e326ac35afeeb9361e44de51b1"
-uuid = "7981ab7d-5bfa-5e03-9ec9-f3d4afc0a1ca"
-version = "0.5.0"
+version = "0.9.1"
 
 [[InteractiveUtils]]
 deps = ["Markdown"]
@@ -222,9 +216,9 @@ uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
 [[Mux]]
 deps = ["AssetRegistry", "Base64", "HTTP", "Hiccup", "Lazy", "Pkg", "Sockets", "Test", "WebSockets"]
-git-tree-sha1 = "cd8de2fc09f8fcc2ee300db39fa0706794b1b2e7"
+git-tree-sha1 = "5b41f03d63400c290bab4e1a49fb9ac36de1084a"
 uuid = "a975b10e-0019-58db-a62f-e48ff68538c9"
-version = "0.6.0"
+version = "0.7.0"
 
 [[Observables]]
 deps = ["Test"]
@@ -333,9 +327,9 @@ uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [[TranscodingStreams]]
 deps = ["Pkg", "Random", "Test"]
-git-tree-sha1 = "d4718bd4db6b7850af3c3833556c6aedbb8e9904"
+git-tree-sha1 = "f42956022d8084539f1d7219f632542b0ea686ce"
 uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
-version = "0.9.2"
+version = "0.9.3"
 
 [[UUIDs]]
 deps = ["Random", "SHA"]
@@ -363,10 +357,10 @@ uuid = "0f1e0344-ec1d-5b48-a673-e5cf874b6c29"
 version = "0.7.0"
 
 [[WebSockets]]
-deps = ["Base64", "Dates", "Distributed", "HTTP", "Logging", "MbedTLS", "Random", "Sockets", "Test"]
-git-tree-sha1 = "7ba89c5cae2661bead73e8b4bf565132c80305ea"
+deps = ["Base64", "Dates", "Distributed", "HTTP", "Logging", "Random", "Sockets", "Test"]
+git-tree-sha1 = "d8edb2de46bebb2729d3fd699f715f00e5b7f019"
 uuid = "104b5d7c-a370-577a-8038-80a2059c5097"
-version = "1.4.0"
+version = "1.5.1"
 
 [[Widgets]]
 deps = ["Colors", "Dates", "Observables", "OrderedCollections", "Test"]
