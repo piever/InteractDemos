@@ -8,7 +8,7 @@ function sliderdemo()
         output = Observables.@map begin
             x = range(-pi, stop = pi, length = &throttle(0.05, number))
             plt = scatterplot(x, sin.(x), canvas = DotCanvas)
-            scatterplot!(plt, x .+ &throttle(0.05, offset), sin.(x), canvas = DotCanvas)
+            scatterplot!(plt, x .+ &throttle(0.05, offset), sin.(x))
             plt
         end
     )
