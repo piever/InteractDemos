@@ -47,5 +47,5 @@ push!(columns, column(
     "Type widgets",
     "Creating widgets for Julia types",
     "demos/type.jl",
-    docs * "widgets.html#Type-input-1"
+    docs * "widgets/#Type-input-1"
 ))

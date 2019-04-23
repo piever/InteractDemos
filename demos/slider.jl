@@ -57,5 +57,5 @@ push!(columns, column(
     "Slider widget",
     "How to use a slider",
     "demos/slider.jl",
-    docs * "widgets.html#Range-input-1"
+    docs * "widgets/#Range-input-1"
 ))

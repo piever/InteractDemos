@@ -47,5 +47,5 @@ push!(columns, column(
     "Text input widgets",
     "Simple text input widgets",
     "demos/text.jl",
-    docs * "widgets.html#Text-input-1"
+    docs * "widgets/#Text-input-1"
 ))

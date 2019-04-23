@@ -52,5 +52,5 @@ push!(columns, column(
     "Dropdown widget",
     "Visualize data with dropdowns and buttons",
     "demos/dropdown.jl",
-    docs * "widgets.html#Option-input-1"
+    docs * "widgets/#Option-input-1"
 ))
