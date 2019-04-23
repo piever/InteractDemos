@@ -42,7 +42,7 @@ typefct = function (req)
     )
 end
 
-push!(pages, page("/demos/type.jl", typefct))
+pages["/demos/type.jl"] = typefct
 push!(columns, column(
     "Type widgets",
     "Creating widgets for Julia types",

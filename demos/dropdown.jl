@@ -47,7 +47,7 @@ dropdownfct = function (req)
     )
 end
 
-push!(pages, page("/demos/dropdown.jl", dropdownfct))
+pages["/demos/dropdown.jl"] = dropdownfct
 push!(columns, column(
     "Dropdown widget",
     "Visualize data with dropdowns and buttons",

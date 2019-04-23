@@ -52,7 +52,7 @@ sliderfct = function (req)
     )
 end
 
-push!(pages, page("/demos/slider.jl", sliderfct))
+pages["/demos/slider.jl"] = sliderfct
 push!(columns, column(
     "Slider widget",
     "How to use a slider",

@@ -42,7 +42,7 @@ textfct = function (req)
     )
 end
 
-push!(pages, page("/demos/text.jl", textfct))
+pages["/demos/text.jl"] = textfct
 push!(columns, column(
     "Text input widgets",
     "Simple text input widgets",

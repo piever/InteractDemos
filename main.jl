@@ -1,9 +1,9 @@
-using Mux, Interact, WebIO
-using Widgets, Sockets
+using Interact, WebIO
+using Widgets, Sockets, WebSockets
 
 include("utils.jl")
 
-pages = Any[]
+pages = Dict{String, Function}()
 columns = Any[]
 docs = "https://juliagizmos.github.io/Interact.jl/latest/"
 
@@ -14,8 +14,19 @@ include("demos/dropdown.jl")
 
 include("index.jl")
 
-append!(pages, [page("/", req -> homepage), page("/index.html", req -> homepage)])
+pages["/"] = req -> homepage
+pages["/index.html"] = pages["/"]
 
-port = 8000
-# @show port = rand(8000:9000)
-WebIO.webio_serve(Mux.stack(pages...), ip"0.0.0.0", port)
+function serve_app(req)
+    func = get(pages, req.target, missing)
+    ismissing(func) && return missing
+    return sprint() do io
+        print(io, """
+            <!doctype html><html><head>
+            <meta charset="UTF-8"></head><body>
+        """)
+        show(io, WebIO.WEBIO_APPLICATION_MIME(), func(req))
+        print(io, "</body></html>")
+    end
+end
+server = WebIO.WebIOServer(serve_app, baseurl = "0.0.0.0", verbose = true)
