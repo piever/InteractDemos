@@ -1,7 +1,11 @@
 using Interact, WebIO
 using Widgets, Sockets, WebSockets
 
+const BASEURL = "0.0.0.0"
 const PORT = isempty(ARGS) ? 8888 : parse(Int64, ARGS[1])
+
+ENV["WEBIO_SERVER_HOST_URL"] = BASEURL
+ENV["WEBIO_HTTP_PORT"] = PORT
 
 include("utils.jl")
 
@@ -31,5 +35,6 @@ function serve_app(req)
         print(io, "</body></html>")
     end
 end
-WebIO.WebIOServer(serve_app, baseurl = "0.0.0.0", http_port = PORT)
+WebIO.routing_callback[] = serve_app
+show(IOBuffer(),  WebIO.WEBIO_APPLICATION_MIME(), node(:div, "start server"))
 wait()
