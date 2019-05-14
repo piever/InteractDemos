@@ -12,7 +12,7 @@ and then run:
 
 `include("main.jl")`
 
-from within the InteractDemos directory. You can see the site at `0.0.0.0:8081` in your browser.
+from within the InteractDemos directory. You can see the site at `0.0.0.0:8888` in your browser.
 
 ## Docker image
 

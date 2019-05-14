@@ -29,7 +29,8 @@ function serve_app(req)
     return sprint() do io
         print(io, """
             <!doctype html><html><head>
-            <meta charset="UTF-8"></head><body>
+            <meta charset="UTF-8"></head>
+            <meta name="viewport" content="width=device-width, initial-scale=1"><body>
         """)
         show(io, WebIO.WEBIO_APPLICATION_MIME(), func(req))
         print(io, "</body></html>")
