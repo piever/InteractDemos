@@ -1,12 +1,6 @@
 using Interact, WebIO
 using Widgets, Sockets, WebSockets
 
-const BASEURL = "0.0.0.0"
-const PORT = isempty(ARGS) ? 8888 : parse(Int64, ARGS[1])
-
-ENV["WEBIO_SERVER_HOST_URL"] = BASEURL
-ENV["WEBIO_HTTP_PORT"] = PORT
-
 include("utils.jl")
 
 pages = Dict{String, Function}()
