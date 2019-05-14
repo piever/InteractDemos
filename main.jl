@@ -31,9 +31,5 @@ function serve_app(req)
         print(io, "</body></html>")
     end
 end
-server = WebIO.WebIOServer(
-                           serve_app,
-                           baseurl = "0.0.0.0",
-                           http_port = PORT,
-                           verbose = true
-                          )
+WebIO.WebIOServer(serve_app, baseurl = "0.0.0.0", http_port = PORT)
+wait()
